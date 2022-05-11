@@ -5,6 +5,7 @@ import { createContext, useContext } from "react"
 // https://docs.google.com/document/d/1-UNlTEpPLhuWpbaoCo4xXLz0K0_Sk2g1ofBINOW51NA/edit#
 export interface Profile {
 	name: string
+	description: string
 	logo: Image
 	address: Address
 	openTime: string
@@ -13,6 +14,7 @@ export interface Profile {
 	geocodedCoordinate: Coordinates
 	services: string[]
 	photoGallery: Image[]
+	nearby?: Profile[]
 	_site: any
 } 
 

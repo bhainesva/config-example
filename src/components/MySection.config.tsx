@@ -27,9 +27,20 @@ function usePropsForRender(): MySectionProps {
 	})
 }
 
+function usePropsForRenderInNearbySection(): MySectionProps {
+	const {name, description, logo} = useProfile(profile => profile)
+
+	return Object.assign(config, {
+		title: name,
+		description: description,
+		image: logo.url,
+	})
+}
+
 // Use standard withConfiguration helperr to export version powered through configuration
 // If we want to use multiple version of this component configured in different ways
 // we would export multiple of these with different usePropsForRender functions
 // We can think of a way to do that without needing code changes if we think it'll be common
 const ConfiguredMySection = withConfiguration(MySection, usePropsForRender)
-export { ConfiguredMySection }
+const MySectionForNearby = withConfiguration(MySection, usePropsForRenderInNearbySection)
+export { ConfiguredMySection, MySectionForNearby }
