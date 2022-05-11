@@ -1,7 +1,5 @@
 import "./MySection.scss";
 import { PropsWithChildren } from "react";
-import withConfiguration from "./withConfiguration";
-import { usePropsForRender } from "./MySection.config"
 
 interface MySectionProps {
 	title: string
@@ -34,12 +32,6 @@ function MySection(props: PropsWithChildren<MySectionProps>) {
 	)
 }
 
-// Use standard withConfiguration helperr to export version powered through configuration
-// If we want to use multiple version of this component configured in different ways
-// we would export multiple of these with different usePropsForRender functions
-// We can think of a way to do that without needing code changes if we think it'll be common
-const ConfiguredMySection = withConfiguration(MySection, usePropsForRender)
-
 // Ignore this stuff: Pretend these are default components exposed by our library
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   level: 1 | 2 | 3 | 4 | 5 | 6,
@@ -58,7 +50,6 @@ function Heading (props: HeadingProps) {
 // Exports
 export {
 	MySection,
-	ConfiguredMySection,
 }
 
 export type { MySectionProps }

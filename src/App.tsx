@@ -1,5 +1,6 @@
 import './App.css'
-import { ConfiguredMySection, MySection } from './components/MySection'
+import { MySection } from './components/MySection'
+import { ConfiguredMySection } from './components/MySection.config'
 import { ProfileProvider, Profile } from "./types"
 
 function App() {
